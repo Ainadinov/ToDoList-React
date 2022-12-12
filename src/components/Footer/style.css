@@ -1,0 +1,24 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 42px 80px 42px;
+}
+
+.footer__nFactorial{
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #081E34;
+}
+
+.footer__credits{
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #081E34;
+    opacity: 0.5;
+}
+
+.footer__credits a{
+    color: #081E34;
+}
