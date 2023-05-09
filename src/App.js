@@ -35,6 +35,10 @@ function App() {
 
 ])
 
+const [filtered, setFiltered] = useState(todo)
+const [isTodoOpen, setTodoOpen] = useState(false);
+const [isTrashOpen, setTrashOpen] = useState(false);
+const [isDoneOpen, setDoneOpen] = useState(false);
 
   useEffect (()=>{
     setFiltered(todo)
@@ -49,11 +53,6 @@ function App() {
     setTodoOpen(true)
   }, [] )
 
-  const [filtered, setFiltered] = useState(todo)
-
-  const [isTodoOpen, setTodoOpen] = useState(false);
-  const [isTrashOpen, setTrashOpen] = useState(false);
-  const [isDoneOpen, setDoneOpen] = useState(false);
 
   const todoFilter = (status) =>{
     if(status === true){

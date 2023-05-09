@@ -39,7 +39,7 @@ function Lists({todo, setTodo, filtered,  isTodoOpen, isTrashOpen, isDoneOpen, t
     function deleteTodo(id){
         let newTodo = [...todo].filter(item=>item.id != id)
         setTodo(newTodo)
-        todoFilter(true)
+        // todoFilter(true)
         todoFilter("trash") 
     }
 
