@@ -32,7 +32,7 @@ function Header({todo, setTodo, todoFilter}){
                 <div className="todo__button">
                     {
                         btn.map((obj, i)=>(
-                            <button onClick={()=>todoFilter(obj.status)} className="todo__bth">{obj.name}</button>
+                            <button  onClick={()=>todoFilter(obj.name)}  className="todo__bth">{obj.name}</button>
                         ))
                     }
                 </div>

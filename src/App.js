@@ -36,9 +36,7 @@ function App() {
 ])
 
 const [filtered, setFiltered] = useState(todo)
-const [isTodoOpen, setTodoOpen] = useState(false);
-const [isTrashOpen, setTrashOpen] = useState(false);
-const [isDoneOpen, setDoneOpen] = useState(false);
+const [title, setTitle] = useState("To Do")
 
   useEffect (()=>{
     setFiltered(todo)
@@ -49,29 +47,16 @@ const [isDoneOpen, setDoneOpen] = useState(false);
 
   }, [todo] )
 
-  useEffect (()=>{
-    setTodoOpen(true)
-  }, [] )
-
-
   const todoFilter = (status) =>{
+    setTitle(status)
     if(status === true){
-      setTodoOpen(true)
-      setTrashOpen(false)
-      setDoneOpen(false)
       let newTodo = [...todo].filter(item => item.status !== 'trash') 
       setFiltered(newTodo)
     }else if (status === 'trash'){
       let newTodo1 = [...todo].filter(item => item.status == status) 
-      setTrashOpen(true)
-      setTodoOpen(false)
-      setDoneOpen(false)
       setFiltered(newTodo1)
     }else {
       let newTodo2 = [...todo].filter(item => item.status == status)
-      setTodoOpen(false) 
-      setTrashOpen(false)
-      setDoneOpen(true)
       setFiltered(newTodo2)
   }
 }
@@ -79,7 +64,7 @@ const [isDoneOpen, setDoneOpen] = useState(false);
   return (
     <div className='app'>      
         <Header todo={todo} setTodo={setTodo} todoFilter={todoFilter}/>
-        <Lists todo={todo} setTodo={setTodo} todoFilter={todoFilter} filtered={filtered} setFiltered={setFiltered} isTodoOpen={isTodoOpen} isTrashOpen={isTrashOpen} isDoneOpen={isDoneOpen} setTodoOpen={setTodoOpen} />
+        <Lists todo={todo} setTodo={setTodo} todoFilter={todoFilter} filtered={filtered} setFiltered={setFiltered} title={title} />
         <Footer/>
     </div>
   );

@@ -5,7 +5,7 @@ import React from 'react';
 import { TRASH__ICON } from '../images';
 import { ADD__ICON } from '../images';
 
-function Lists({todo, setTodo, filtered,  isTodoOpen, isTrashOpen, isDoneOpen, todoFilter }){
+function Lists({todo, setTodo, filtered,  todoFilter, title }){
     const [isBthOpen, setBthOpen] = useState(true)
     const [isTrashBthOpen, setTrashBthOpen] = useState('trash');
    
@@ -56,9 +56,7 @@ function Lists({todo, setTodo, filtered,  isTodoOpen, isTrashOpen, isDoneOpen, t
     return(
         <div className='lists'>
                 <div>
-                    {isTodoOpen && <h1 className='list__title'>To Do</h1>}
-                    {isDoneOpen && <h1 className='list__title'>Done</h1>}
-                    {isTrashOpen && <h1 className='list__title'>Trash</h1>}
+                    <h1 className='list__title'>{title}</h1>
                 </div>
             {
                 filtered.map(item=>(
