@@ -42,21 +42,21 @@ const [title, setTitle] = useState("To Do")
     setFiltered(todo)
    
     todo.filter(item => {if(item.status !== false){
-      todoFilter(true)
+      todoFilter({name: 'To Do', status: true})
     }}) 
 
   }, [todo] )
 
-  const todoFilter = (status) =>{
-    setTitle(status)
-    if(status === true){
+  const todoFilter = (obj) =>{
+    setTitle(obj.name)
+    if(obj.status === true){
       let newTodo = [...todo].filter(item => item.status !== 'trash') 
       setFiltered(newTodo)
-    }else if (status === 'trash'){
-      let newTodo1 = [...todo].filter(item => item.status == status) 
+    }else if (obj.status === 'trash'){
+      let newTodo1 = [...todo].filter(item => item.status == obj.status) 
       setFiltered(newTodo1)
     }else {
-      let newTodo2 = [...todo].filter(item => item.status == status)
+      let newTodo2 = [...todo].filter(item => item.status == obj.status)
       setFiltered(newTodo2)
   }
 }

@@ -28,7 +28,6 @@ function Lists({todo, setTodo, filtered,  todoFilter, title }){
                        
         })
         setTodo(newTodo)   
-        
     }
     
     const trashBthOpen = (id) =>{  
@@ -39,8 +38,7 @@ function Lists({todo, setTodo, filtered,  todoFilter, title }){
     function deleteTodo(id){
         let newTodo = [...todo].filter(item=>item.id != id)
         setTodo(newTodo)
-        // todoFilter(true)
-        todoFilter("trash") 
+        todoFilter({name: 'Trash', status: "trash"}) 
     }
 
     function backTodo(id){
